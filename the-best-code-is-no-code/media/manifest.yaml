@@ -1,0 +1,15 @@
+assets:
+  - filename: "a-programmer-move.jpg"
+    source_url: "https://www.reddit.com/r/ProgrammerHumor/comments/17pmugu/programmermove/"
+    license: "unclear / meme reuse, no explicit license from original poster"
+    attribution_text: "\"Programmer Move\" meme via r/ProgrammerHumor"
+
+  - filename: "is-it-worth-the-time.png"
+    source_url: "https://xkcd.com/1205/"
+    license: "CC BY-NC 2.5"
+    attribution_text: "xkcd #1205, \"Is It Worth the Time?\" by Randall Munroe, CC BY-NC 2.5"
+
+  - filename: "from-cheapest-to-most-expensive.png"
+    source_url: "N/A (original diagram created for this post)"
+    license: "original artwork, all rights reserved"
+    attribution_text: "n/a"

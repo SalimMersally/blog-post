@@ -1,0 +1,8 @@
+# One entry per file in this media/ folder.
+# assets:
+#   - filename: "programmer-move-meme.png"
+#     source_url: "TODO"
+#     license: "TODO"                 # e.g. CC BY-NC 2.5, fair use, original, placeholder
+#     attribution_text: "TODO"        # required credit line, if any
+
+assets: []

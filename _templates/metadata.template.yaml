@@ -1,0 +1,11 @@
+title: "TODO"
+slug: "TODO"
+date_published: "TODO"        # YYYY-MM-DD, blank until published
+status: "draft"                # draft | ready | published
+tags:
+  - "TODO"
+series: null                   # series slug, or null if standalone
+series_part: null               # integer, or null if standalone
+read_time_minutes: "TODO"
+inspired_by: "TODO"             # article/post that inspired this piece, if any
+references: []                  # list of source links used while researching/writing
