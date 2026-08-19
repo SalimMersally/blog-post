@@ -1,0 +1,14 @@
+# One entry per file in this media/ folder.
+
+assets:
+  - filename: "the-legacy-change-algorithm.png"
+    source_url: "N/A (original diagram created for this post)"
+    license: "original artwork, all rights reserved"
+    attribution_text: "n/a"
+    notes: "Rendered from the-legacy-change-algorithm.svg. 2400x612. Diagram content summarizes the five-step legacy change algorithm from Michael Feathers, Working Effectively with Legacy Code (2004); no title or credit line baked into the image, both live in the post's caption/prose instead."
+
+  - filename: "the-legacy-change-algorithm.svg"
+    source_url: "N/A (original diagram created for this post)"
+    license: "original artwork, all rights reserved"
+    attribution_text: "n/a"
+    notes: "Editable source for the PNG above. Not published; kept so the diagram can be regenerated."

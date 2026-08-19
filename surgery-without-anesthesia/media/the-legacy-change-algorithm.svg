@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 306" width="1200" height="306" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <rect width="1200" height="306" fill="#fbfbfa"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a9a9a"/>
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c2410c"/>
+    </marker>
+  </defs>
+
+  <!-- step 1 -->
+  <rect x="40" y="50" width="200" height="120" rx="12" fill="#ffffff" stroke="#d8d8d4" stroke-width="1.5"/>
+  <circle cx="70" cy="80" r="15" fill="#eceae5"/>
+  <text x="70" y="86" font-size="15" font-weight="700" fill="#4a4a4a" text-anchor="middle">1</text>
+  <text x="70" y="126" font-size="17" font-weight="600" fill="#1a1a1a">Identify</text>
+  <text x="70" y="149" font-size="17" font-weight="600" fill="#1a1a1a">change points</text>
+
+  <!-- step 2 -->
+  <rect x="270" y="50" width="200" height="120" rx="12" fill="#ffffff" stroke="#d8d8d4" stroke-width="1.5"/>
+  <circle cx="300" cy="80" r="15" fill="#eceae5"/>
+  <text x="300" y="86" font-size="15" font-weight="700" fill="#4a4a4a" text-anchor="middle">2</text>
+  <text x="300" y="126" font-size="17" font-weight="600" fill="#1a1a1a">Find</text>
+  <text x="300" y="149" font-size="17" font-weight="600" fill="#1a1a1a">test points</text>
+
+  <!-- step 3 (accent) -->
+  <rect x="500" y="50" width="200" height="120" rx="12" fill="#fff5ef" stroke="#c2410c" stroke-width="2"/>
+  <circle cx="530" cy="80" r="15" fill="#c2410c"/>
+  <text x="530" y="86" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="530" y="126" font-size="17" font-weight="600" fill="#7c2d12">Break</text>
+  <text x="530" y="149" font-size="17" font-weight="600" fill="#7c2d12">dependencies</text>
+
+  <!-- step 4 (accent) -->
+  <rect x="730" y="50" width="200" height="120" rx="12" fill="#fff5ef" stroke="#c2410c" stroke-width="2"/>
+  <circle cx="760" cy="80" r="15" fill="#c2410c"/>
+  <text x="760" y="86" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="760" y="126" font-size="17" font-weight="600" fill="#7c2d12">Write</text>
+  <text x="760" y="149" font-size="17" font-weight="600" fill="#7c2d12">tests</text>
+
+  <!-- step 5 -->
+  <rect x="960" y="50" width="200" height="120" rx="12" fill="#ffffff" stroke="#d8d8d4" stroke-width="1.5"/>
+  <circle cx="990" cy="80" r="15" fill="#eceae5"/>
+  <text x="990" y="86" font-size="15" font-weight="700" fill="#4a4a4a" text-anchor="middle">5</text>
+  <text x="990" y="126" font-size="17" font-weight="600" fill="#1a1a1a">Make changes</text>
+  <text x="990" y="149" font-size="17" font-weight="600" fill="#1a1a1a">and refactor</text>
+
+  <!-- arrows between steps -->
+  <line x1="244" y1="110" x2="264" y2="110" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="474" y1="110" x2="494" y2="110" stroke="#c2410c" stroke-width="2" marker-end="url(#arrowAccent)"/>
+  <line x1="704" y1="110" x2="724" y2="110" stroke="#c2410c" stroke-width="2" marker-end="url(#arrowAccent)"/>
+  <line x1="934" y1="110" x2="954" y2="110" stroke="#9a9a9a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- loop back -->
+  <path d="M 1060 170 L 1060 240 L 140 240 L 140 170" fill="none" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <rect x="510" y="222" width="180" height="34" rx="8" fill="#fbfbfa"/>
+  <text x="600" y="245" font-size="15" fill="#6b6b6b" text-anchor="middle">repeat, next change</text>
+</svg>
