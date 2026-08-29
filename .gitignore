@@ -1,3 +1,7 @@
 node_modules/
 .claude/settings.local.json
 .idea/
+.worktrees/
+.DS_Store
+.angular/
+.pnpm-store/
