@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 632" width="900" height="632" role="img" aria-label="Session fixation attack: the attacker takes an anonymous session ID from the app, plants it in the victim's browser, the victim logs in on that ID, and the attacker then uses the same ID to reach the victim's account">
+  <style>
+    .surface { fill: #fcfcfb; }
+    .ring { fill: none; stroke: rgba(11,11,11,0.10); stroke-width: 1; }
+    .lane-attacker { fill: #eb6834; fill-opacity: 0.10; }
+    .lane-server { fill: #898781; fill-opacity: 0.10; }
+    .lane-victim { fill: #2a78d6; fill-opacity: 0.10; }
+    .lane-title { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #0b0b0b; }
+    .icon-attacker { fill: none; stroke: #eb6834; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-victim { fill: none; stroke: #2a78d6; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-server { fill: none; stroke: #52514e; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dot-server { fill: #52514e; }
+    .lifeline { stroke: #cfcdc7; stroke-width: 2; stroke-dasharray: 6 6; }
+    .label { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #0b0b0b; }
+    .sub { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 400; fill: #52514e; }
+    .note { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; fill: #eb6834; }
+    .num { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 700; fill: #ffffff; }
+    .num-bg { fill: #898781; }
+    .a-arrow { stroke: #eb6834; stroke-width: 2; fill: none; }
+    .s-arrow { stroke: #898781; stroke-width: 2; fill: none; }
+    .v-arrow { stroke: #2a78d6; stroke-width: 2; fill: none; }
+    .caption { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; fill: #898781; }
+  </style>
+
+  <defs>
+    <marker id="fx-o" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#eb6834"/>
+    </marker>
+    <marker id="fx-g" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#898781"/>
+    </marker>
+    <marker id="fx-b" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2a78d6"/>
+    </marker>
+  </defs>
+
+  <rect class="surface" x="1" y="1" width="898" height="630" rx="16"/>
+  <rect class="ring" x="1" y="1" width="898" height="630" rx="16"/>
+
+  <text x="40" y="40" class="caption" font-size="14">Session fixation, when the server does not issue a new ID at login</text>
+
+  <!-- attacker lane -->
+  <rect class="lane-attacker" x="60" y="58" width="160" height="86" rx="12"/>
+  <circle class="icon-attacker" cx="140" cy="84" r="9"/>
+  <path class="icon-attacker" d="M 126 112 v-4 a 7 7 0 0 1 7 -7 h 14 a 7 7 0 0 1 7 7 v 4"/>
+  <text x="140" y="136" text-anchor="middle" class="lane-title" font-size="15">Attacker</text>
+
+  <!-- server lane -->
+  <rect class="lane-server" x="370" y="58" width="160" height="86" rx="12"/>
+  <rect class="icon-server" x="426" y="70" width="48" height="20" rx="4"/>
+  <rect class="icon-server" x="426" y="96" width="48" height="20" rx="4"/>
+  <circle class="dot-server" cx="437" cy="80" r="2.6"/>
+  <circle class="dot-server" cx="437" cy="106" r="2.6"/>
+  <text x="450" y="136" text-anchor="middle" class="lane-title" font-size="15">Server</text>
+
+  <!-- victim lane -->
+  <rect class="lane-victim" x="680" y="58" width="160" height="86" rx="12"/>
+  <circle class="icon-victim" cx="760" cy="84" r="9"/>
+  <path class="icon-victim" d="M 746 112 v-4 a 7 7 0 0 1 7 -7 h 14 a 7 7 0 0 1 7 7 v 4"/>
+  <text x="760" y="136" text-anchor="middle" class="lane-title" font-size="15">Victim</text>
+
+  <line class="lifeline" x1="140" y1="146" x2="140" y2="606"/>
+  <line class="lifeline" x1="450" y1="146" x2="450" y2="606"/>
+  <line class="lifeline" x1="760" y1="146" x2="760" y2="606"/>
+
+  <!-- 1 -->
+  <circle class="num-bg" cx="54" cy="224" r="12"/>
+  <text x="54" y="228.5" text-anchor="middle" class="num" font-size="13">1</text>
+  <text x="295" y="184" text-anchor="middle" class="label" font-size="13">opens the app, logged out</text>
+  <path class="a-arrow" d="M 145 198 L 443 198" marker-end="url(#fx-o)"/>
+
+  <text x="295" y="236" text-anchor="middle" class="sub" font-size="12">Set-Cookie: SESSIONID=9f3a...</text>
+  <path class="s-arrow" d="M 450 250 L 147 250" marker-end="url(#fx-g)"/>
+
+  <!-- 2 -->
+  <circle class="num-bg" cx="54" cy="312" r="12"/>
+  <text x="54" y="316.5" text-anchor="middle" class="num" font-size="13">2</text>
+  <path class="a-arrow" d="M 145 312 Q 450 278 753 312" marker-end="url(#fx-o)"/>
+  <rect x="232" y="328" width="436" height="34" fill="#fcfcfb"/>
+  <text x="450" y="350" text-anchor="middle" class="label" font-size="13">plants that same ID in the victim's browser</text>
+
+  <!-- 3 -->
+  <circle class="num-bg" cx="54" cy="443" r="12"/>
+  <text x="54" y="447.5" text-anchor="middle" class="num" font-size="13">3</text>
+  <text x="605" y="392" text-anchor="middle" class="label" font-size="13">logs in, own correct password</text>
+  <path class="v-arrow" d="M 755 406 L 457 406" marker-end="url(#fx-b)"/>
+  <text x="605" y="426" text-anchor="middle" class="sub" font-size="12">Cookie: SESSIONID=9f3a...</text>
+
+  <text x="605" y="466" text-anchor="middle" class="label" font-size="13">200 OK, no new ID issued</text>
+  <path class="s-arrow" d="M 450 480 L 753 480" marker-end="url(#fx-g)"/>
+  <text x="605" y="500" text-anchor="middle" class="sub" font-size="12">9f3a... is now user 47</text>
+
+  <!-- 4 -->
+  <circle class="num-bg" cx="54" cy="577" r="12"/>
+  <text x="54" y="581.5" text-anchor="middle" class="num" font-size="13">4</text>
+  <text x="295" y="542" text-anchor="middle" class="label" font-size="13">reuses the ID they planted</text>
+  <path class="a-arrow" d="M 145 556 L 443 556" marker-end="url(#fx-o)"/>
+
+  <text x="295" y="584" text-anchor="middle" class="note" font-size="13">200 OK, the victim's account</text>
+  <path class="s-arrow" d="M 450 598 L 147 598" marker-end="url(#fx-g)"/>
+</svg>

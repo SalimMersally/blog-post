@@ -1,0 +1,75 @@
+title: "Understanding Authentication"
+slug: "understanding-authentication"
+status: "draft"                 # draft | ready | published — series-level status
+tags:
+  - "Authentication"
+  - "Security"
+  - "Web Development"
+  - "Java"
+  - "Spring Boot"
+description: "Authentication is not one problem with one universal solution. This series explains how different approaches work, what each one is designed to solve, and how to choose the right one for your application."
+demo_app: >
+  TaskFlow is a Java and Spring Boot task-tracker API exercised through
+  HTTP requests. The same application evolves throughout the series as
+  different authentication mechanisms introduce new requirements.
+notes: >
+  Lineup and order may change as parts are drafted (parts may be split
+  or merged). Parts are published as they are finished, starting with
+  part 1 on 2026-09-17. No standalone intro post: each part opens with
+  a short blurb placing it in the series instead.
+parts:
+  - number: 1
+    slug: "sessions-cookies"
+    title: "Sessions: How the Web Remembers You"
+    covers: "Server-side sessions, cookies, cookie flags, CSRF, session fixation, and Spring Session JDBC"
+    status: "published"
+  - number: 2
+    slug: "password-hashing"
+    title: "TODO"
+    covers: "bcrypt/argon2, salting, storage pitfalls"
+    status: "TODO"
+  - number: 3
+    slug: "jwt-tokens"
+    title: "TODO"
+    covers: "JWT structure, signing vs encryption, access/refresh, revocation problem"
+    status: "TODO"
+  - number: 4
+    slug: "oauth2"
+    title: "TODO"
+    covers: "Auth code flow, PKCE, client credentials, delegated access"
+    status: "TODO"
+  - number: 5
+    slug: "oidc"
+    title: "TODO"
+    covers: "Identity layer on OAuth2, ID tokens, vs OAuth2"
+    status: "TODO"
+  - number: 6
+    slug: "saml-sso"
+    title: "TODO"
+    covers: "XML federation, enterprise SSO, vs OIDC"
+    status: "TODO"
+  - number: 7
+    slug: "passwordless-webauthn"
+    title: "TODO"
+    covers: "Magic links, WebAuthn/FIDO2, passkeys"
+    status: "TODO"
+    research_notes: >
+      Medium pieces worth revisiting for the adoption-friction angle: passkeys as
+      additive not a migration (https://medium.com/@yashbatra11111/passwords-are-dead-why-fido2-and-passkeys-will-change-everything-for-developers-b21c48f92d03),
+      and "the story is recovery becoming the product"
+      (https://medium.com/@usamahmoin/passkeys-are-the-quiet-death-of-passwords-heres-what-replaces-i-forgot-e4d89d2052d3).
+  - number: 8
+    slug: "mfa"
+    title: "TODO"
+    covers: "TOTP, SMS weaknesses, push, recovery codes"
+    status: "TODO"
+  - number: 9
+    slug: "api-keys-mtls"
+    title: "TODO"
+    covers: "Machine-to-machine auth, key rotation, mTLS"
+    status: "TODO"
+  - number: 10
+    slug: "choosing-the-right-auth"
+    title: "TODO"
+    covers: "Comparison table, decision framework, series wrap-up"
+    status: "TODO"

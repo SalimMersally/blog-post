@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="900" height="440" role="img" aria-label="Two requests reach Spring Security. The Cookie header may contain both SESSION and XSRF-TOKEN, but only the application frontend can copy XSRF-TOKEN into the separate X-XSRF-TOKEN header, so the other website is rejected.">
+  <style>
+    .surface { fill: #fcfcfb; }
+    .border { fill: none; stroke: rgba(11, 11, 11, 0.10); stroke-width: 1; }
+    .trusted { fill: #2a78d6; fill-opacity: 0.08; stroke: #2a78d6; stroke-opacity: 0.35; }
+    .attacker { fill: #eb6834; fill-opacity: 0.08; stroke: #eb6834; stroke-opacity: 0.35; }
+    .request { fill: #ffffff; stroke: rgba(11, 11, 11, 0.14); stroke-width: 1; }
+    .accepted { fill: #2a78d6; }
+    .rejected { fill: #eb6834; }
+    .title { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #0b0b0b; }
+    .body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; fill: #52514e; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 400; fill: #52514e; }
+    .good { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; fill: #2a78d6; }
+    .bad { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; fill: #eb6834; }
+    .verdict { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #ffffff; }
+  </style>
+
+  <rect class="surface" x="1" y="1" width="898" height="438" rx="16"/>
+  <rect class="border" x="1" y="1" width="898" height="438" rx="16"/>
+
+  <text x="450" y="42" text-anchor="middle" class="title" font-size="17">Two cookies in one header, plus a separate CSRF header</text>
+
+  <rect class="trusted" x="40" y="70" width="390" height="326" rx="14"/>
+  <text x="64" y="104" class="title" font-size="16">Our application</text>
+  <text x="64" y="128" class="body" font-size="13">can read the CSRF token</text>
+
+  <rect class="request" x="64" y="146" width="342" height="166" rx="10"/>
+  <text x="84" y="174" class="mono" font-size="13">POST /api/tasks</text>
+  <text x="84" y="204" class="mono" font-size="13">Cookie header</text>
+  <text x="100" y="228" class="good" font-size="13">SESSION</text>
+  <text x="378" y="228" text-anchor="end" class="good" font-size="13">present ✓</text>
+  <text x="100" y="252" class="good" font-size="13">XSRF-TOKEN</text>
+  <text x="378" y="252" text-anchor="end" class="good" font-size="13">present ✓</text>
+  <text x="84" y="284" class="good" font-size="13">X-XSRF-TOKEN header</text>
+  <text x="378" y="284" text-anchor="end" class="good" font-size="13">present ✓</text>
+
+  <rect class="accepted" x="64" y="318" width="342" height="54" rx="27"/>
+  <text x="235" y="351" text-anchor="middle" class="verdict" font-size="15">Accepted</text>
+
+  <rect class="attacker" x="470" y="70" width="390" height="326" rx="14"/>
+  <text x="494" y="104" class="title" font-size="16">Another website</text>
+  <text x="494" y="128" class="body" font-size="13">cannot read the CSRF token</text>
+
+  <rect class="request" x="494" y="146" width="342" height="166" rx="10"/>
+  <text x="514" y="174" class="mono" font-size="13">POST /api/tasks</text>
+  <text x="514" y="204" class="mono" font-size="13">Cookie header</text>
+  <text x="530" y="228" class="mono" font-size="13">SESSION</text>
+  <text x="808" y="228" text-anchor="end" class="mono" font-size="13">may be present</text>
+  <text x="530" y="252" class="mono" font-size="13">XSRF-TOKEN</text>
+  <text x="808" y="252" text-anchor="end" class="mono" font-size="13">may be present</text>
+  <text x="514" y="284" class="bad" font-size="13">X-XSRF-TOKEN header</text>
+  <text x="808" y="284" text-anchor="end" class="bad" font-size="13">missing ✕</text>
+
+  <rect class="rejected" x="494" y="318" width="342" height="54" rx="27"/>
+  <text x="665" y="351" text-anchor="middle" class="verdict" font-size="15">403 Forbidden</text>
+</svg>

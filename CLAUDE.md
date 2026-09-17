@@ -44,6 +44,8 @@ Directory names should match the post's slug for traceability back to Sanity.
 - Quotes with uncertain/unverified attribution can be kept if they're widely circulated and recognizable, but flag the attribution uncertainty to the user before finalizing rather than silently including or silently dropping it.
 - Before finalizing a post, check for formatting collisions: images or embeds breaking numbered lists, code blocks splitting mid-thought, etc.
 - Editorial restraint: trim counterpoint sections, tangents, and name-drops that don't serve the core argument. Keep focus tight.
+- Match the prose rhythm of the legacy-code posts: develop each idea in a natural paragraph of several connected sentences, vary sentence length, and reserve one-sentence paragraphs for deliberate emphasis. Avoid choppy runs of very short paragraphs and excessive punctuation used to manufacture rhythm. Bulleted and ordered lists are welcome when they make definitions, comparisons, or sequences clearer.
+- Keep article and section titles short enough to remain on one line in the normal portfolio layout.
 
 # Code conventions
 
@@ -53,7 +55,7 @@ Directory names should match the post's slug for traceability back to Sanity.
 
 # Metadata
 
-Every post gets its own `metadata.yaml` (see `_templates/metadata.template.yaml`). Do not fold metadata into `blog-post.md` as prose. Required fields: title, slug, tags, meta description (2-3 options), estimated read time, publish status, Sanity paste notes, references (list of source links used while researching/writing; empty list if none). Series posts also get a `series-metadata.yaml` at the series root.
+Every post gets its own `metadata.yaml` (see `_templates/metadata.template.yaml`). Do not fold metadata into `blog-post.md` as prose. Required fields: title, slug, tags, meta description (2-3 options), estimated read time, publish status, references (list of source links used while researching/writing; empty list if none). Series posts also get a `series-metadata.yaml` at the series root.
 
 # Media
 

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1280" width="1000" height="1280" role="img" aria-labelledby="title description">
+  <title id="title">Session and CSRF request sequence</title>
+  <desc id="description">A client first obtains a CSRF token, signs up, receives an authenticated session, refreshes the CSRF token, creates a task, and logs out. Spring Security validates cookies and headers before controllers access PostgreSQL.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#52514e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#2a78d6"/>
+    </marker>
+    <style>
+      .surface { fill: #fcfcfb; }
+      .border { fill: none; stroke: rgba(11, 11, 11, 0.10); stroke-width: 1; }
+      .actor { fill: #ffffff; stroke: rgba(11, 11, 11, 0.18); stroke-width: 1; }
+      .security { fill: #2a78d6; fill-opacity: 0.08; stroke: #2a78d6; stroke-opacity: 0.35; }
+      .phase { fill: #2a78d6; fill-opacity: 0.035; }
+      .lifeline { stroke: rgba(11, 11, 11, 0.22); stroke-width: 1; stroke-dasharray: 5 5; }
+      .message { stroke: #52514e; stroke-width: 1.4; marker-end: url(#arrow); }
+      .response { stroke: #2a78d6; stroke-width: 1.4; stroke-dasharray: 5 4; marker-end: url(#arrow-blue); }
+      .title { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #0b0b0b; }
+      .body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; fill: #52514e; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 400; fill: #52514e; }
+      .blue { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; fill: #2a78d6; }
+      .phase-title { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #2a78d6; }
+    </style>
+  </defs>
+
+  <rect class="surface" x="1" y="1" width="998" height="1278" rx="16"/>
+  <rect class="border" x="1" y="1" width="998" height="1278" rx="16"/>
+  <text x="500" y="38" text-anchor="middle" class="title" font-size="18">From anonymous client to authenticated session</text>
+
+  <rect class="actor" x="35" y="60" width="170" height="54" rx="10"/>
+  <rect class="security" x="280" y="60" width="190" height="54" rx="10"/>
+  <rect class="actor" x="550" y="60" width="170" height="54" rx="10"/>
+  <rect class="actor" x="795" y="60" width="170" height="54" rx="10"/>
+  <text x="120" y="92" text-anchor="middle" class="title" font-size="15">Client</text>
+  <text x="375" y="92" text-anchor="middle" class="title" font-size="15">Spring Security</text>
+  <text x="635" y="92" text-anchor="middle" class="title" font-size="15">API controller</text>
+  <text x="880" y="92" text-anchor="middle" class="title" font-size="15">PostgreSQL</text>
+
+  <line class="lifeline" x1="120" y1="114" x2="120" y2="1250"/>
+  <line class="lifeline" x1="375" y1="114" x2="375" y2="1250"/>
+  <line class="lifeline" x1="635" y1="114" x2="635" y2="1250"/>
+  <line class="lifeline" x1="880" y1="114" x2="880" y2="1250"/>
+
+  <rect class="phase" x="24" y="140" width="952" height="145" rx="10"/>
+  <text x="42" y="166" class="phase-title" font-size="13">1. Obtain a token before login</text>
+  <text x="244" y="192" text-anchor="middle" class="mono" font-size="12">GET /api/auth/csrf</text>
+  <line class="message" x1="120" y1="210" x2="367" y2="210"/>
+  <text x="252" y="239" text-anchor="middle" class="blue" font-size="12">Set-Cookie: XSRF-TOKEN=A</text>
+  <line class="response" x1="375" y1="257" x2="128" y2="257"/>
+
+  <rect class="phase" x="24" y="301" width="952" height="300" rx="10"/>
+  <text x="42" y="327" class="phase-title" font-size="13">2. Sign up and establish the authenticated session</text>
+  <text x="244" y="355" text-anchor="middle" class="mono" font-size="12">POST /api/auth/signup</text>
+  <text x="244" y="373" text-anchor="middle" class="body" font-size="11">Cookie: XSRF-TOKEN=A</text>
+  <text x="244" y="391" text-anchor="middle" class="blue" font-size="11">X-XSRF-TOKEN: A</text>
+  <line class="message" x1="120" y1="410" x2="367" y2="410"/>
+  <text x="501" y="430" text-anchor="middle" class="body" font-size="12">token valid</text>
+  <line class="message" x1="375" y1="448" x2="627" y2="448"/>
+  <text x="754" y="468" text-anchor="middle" class="body" font-size="12">hash password and save user</text>
+  <line class="message" x1="635" y1="486" x2="872" y2="486"/>
+  <text x="762" y="506" text-anchor="middle" class="body" font-size="12">user saved</text>
+  <line class="response" x1="880" y1="524" x2="643" y2="524"/>
+  <text x="252" y="544" text-anchor="middle" class="blue" font-size="12">201 Created · Set-Cookie: SESSION=S1</text>
+  <text x="252" y="562" text-anchor="middle" class="body" font-size="11">session ID rotated · token A cleared</text>
+  <line class="response" x1="375" y1="580" x2="128" y2="580"/>
+
+  <rect class="phase" x="24" y="617" width="952" height="155" rx="10"/>
+  <text x="42" y="643" class="phase-title" font-size="13">3. Refresh the token after authentication</text>
+  <text x="244" y="672" text-anchor="middle" class="mono" font-size="12">GET /api/auth/csrf</text>
+  <text x="244" y="690" text-anchor="middle" class="body" font-size="11">Cookie: SESSION=S1</text>
+  <line class="message" x1="120" y1="708" x2="367" y2="708"/>
+  <text x="252" y="734" text-anchor="middle" class="blue" font-size="12">Set-Cookie: XSRF-TOKEN=B</text>
+  <line class="response" x1="375" y1="752" x2="128" y2="752"/>
+
+  <rect class="phase" x="24" y="788" width="952" height="265" rx="10"/>
+  <text x="42" y="814" class="phase-title" font-size="13">4. Make an authenticated state-changing request</text>
+  <text x="244" y="844" text-anchor="middle" class="mono" font-size="12">POST /api/tasks</text>
+  <text x="244" y="862" text-anchor="middle" class="body" font-size="11">Cookie: SESSION=S1; XSRF-TOKEN=B</text>
+  <text x="244" y="880" text-anchor="middle" class="blue" font-size="11">X-XSRF-TOKEN: B</text>
+  <line class="message" x1="120" y1="898" x2="367" y2="898"/>
+  <text x="501" y="920" text-anchor="middle" class="body" font-size="12">session and token valid</text>
+  <line class="message" x1="375" y1="938" x2="627" y2="938"/>
+  <text x="754" y="960" text-anchor="middle" class="body" font-size="12">save task as authenticated user</text>
+  <line class="message" x1="635" y1="978" x2="872" y2="978"/>
+  <text x="382" y="1014" text-anchor="middle" class="blue" font-size="12">201 Created</text>
+  <line class="response" x1="635" y1="1032" x2="128" y2="1032"/>
+
+  <rect class="phase" x="24" y="1069" width="952" height="191" rx="10"/>
+  <text x="42" y="1095" class="phase-title" font-size="13">5. Log out</text>
+  <text x="244" y="1125" text-anchor="middle" class="mono" font-size="12">POST /api/auth/logout</text>
+  <text x="244" y="1143" text-anchor="middle" class="body" font-size="11">both cookies + X-XSRF-TOKEN: B</text>
+  <line class="message" x1="120" y1="1161" x2="367" y2="1161"/>
+  <text x="624" y="1185" text-anchor="middle" class="body" font-size="12">invalidate stored session</text>
+  <line class="message" x1="375" y1="1203" x2="872" y2="1203"/>
+  <text x="252" y="1221" text-anchor="middle" class="blue" font-size="12">204 No Content · cookies cleared</text>
+  <line class="response" x1="375" y1="1239" x2="128" y2="1239"/>
+</svg>

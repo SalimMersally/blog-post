@@ -15,11 +15,3 @@ series_part: null
 read_time_minutes: 6
 inspired_by: "Michael Feathers, 'Working Effectively with Legacy Code' (2004, Prentice Hall)"
 references: []
-sanity_id: "f0ec5fc2-9a21-471f-be75-7fb34deb84c3"
-sanity_notes: |
-  Published 2026-08-22 to project 46kdlm0d / dataset production, id f0ec5fc2-9a21-471f-be75-7fb34deb84c3.
-  Full body re-synced from blog-post.md after the post-publish editing pass (headings renamed,
-  Takeaway section rewritten, Seams reordered, list restored, one code block removed, etc).
-  Diagram asset was re-uploaded by hand in the Studio (new 2400x612 crop, no baked-in title/credit):
-  image-8d8841d04f868f15a4e2dacb48d7f142ec7d7ece-2400x612-png, alt/caption kept in sync with the
-  markdown's image line and **caption:** note.

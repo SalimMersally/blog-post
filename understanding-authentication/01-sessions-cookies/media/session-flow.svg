@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 690" width="900" height="690" role="img" aria-label="Session flow: login creates a server-side session and returns its ID in a cookie, the browser sends that cookie on later requests, and logout deletes the session">
+  <style>
+    .surface { fill: #fcfcfb; }
+    .ring { fill: none; stroke: rgba(11,11,11,0.10); stroke-width: 1; }
+    .panel-blue { fill: #2a78d6; fill-opacity: 0.08; }
+    .panel-orange { fill: #eb6834; fill-opacity: 0.08; }
+    .lane-title { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #0b0b0b; }
+    .msg { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 400; fill: #52514e; }
+    .note { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; fill: #52514e; }
+    .step { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #898781; }
+    .lifeline { stroke: #cfcdc7; stroke-width: 2; stroke-dasharray: 6 6; }
+    .arrow { stroke: #2a78d6; stroke-width: 2; fill: none; }
+    .arrow-back { stroke: #898781; stroke-width: 2; fill: none; }
+    .note-box { fill: #eb6834; fill-opacity: 0.08; }
+    .note-box-muted { fill: #898781; fill-opacity: 0.08; }
+  </style>
+
+  <defs>
+    <marker id="head-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2a78d6"/>
+    </marker>
+    <marker id="head-gray" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#898781"/>
+    </marker>
+  </defs>
+
+  <rect class="surface" x="1" y="1" width="898" height="688" rx="16"/>
+  <rect class="ring" x="1" y="1" width="898" height="688" rx="16"/>
+
+  <rect class="panel-blue" x="40" y="32" width="200" height="52" rx="10"/>
+  <text x="140" y="64" text-anchor="middle" class="lane-title" font-size="19">Browser</text>
+
+  <rect class="panel-orange" x="520" y="32" width="200" height="52" rx="10"/>
+  <text x="620" y="64" text-anchor="middle" class="lane-title" font-size="19">Server</text>
+
+  <line class="lifeline" x1="140" y1="84" x2="140" y2="660"/>
+  <line class="lifeline" x1="620" y1="84" x2="620" y2="660"/>
+
+  <!-- 1. login -->
+  <text x="150" y="124" class="step" font-size="13">1</text>
+  <text x="380" y="142" text-anchor="middle" class="msg" font-size="13">POST /api/auth/login  { username, password }</text>
+  <path class="arrow" d="M 140 156 L 615 156" marker-end="url(#head-blue)"/>
+  <rect class="note-box" x="650" y="128" width="215" height="56" rx="8"/>
+  <text x="662" y="150" class="note" font-size="13">verifies the password and</text>
+  <text x="662" y="170" class="note" font-size="13">creates a session record</text>
+
+  <!-- 2. set-cookie -->
+  <text x="150" y="222" class="step" font-size="13">2</text>
+  <text x="380" y="236" text-anchor="middle" class="msg" font-size="13">200 OK</text>
+  <text x="380" y="254" text-anchor="middle" class="msg" font-size="13">Set-Cookie: SESSION=k7f2a9...</text>
+  <path class="arrow-back" d="M 620 268 L 145 268" marker-end="url(#head-gray)"/>
+  <rect class="note-box-muted" x="650" y="226" width="215" height="56" rx="8"/>
+  <text x="662" y="248" class="note" font-size="13">browser stores the random</text>
+  <text x="662" y="268" class="note" font-size="13">ID, not the user data</text>
+
+  <!-- 3. authenticated request -->
+  <text x="150" y="330" class="step" font-size="13">3</text>
+  <text x="380" y="344" text-anchor="middle" class="msg" font-size="13">POST /api/tasks</text>
+  <text x="380" y="362" text-anchor="middle" class="msg" font-size="13">Cookie: SESSION=k7f2a9...  (sent automatically)</text>
+  <path class="arrow" d="M 140 376 L 615 376" marker-end="url(#head-blue)"/>
+  <rect class="note-box" x="650" y="348" width="215" height="56" rx="8"/>
+  <text x="662" y="370" class="note" font-size="13">looks up the ID, recovers</text>
+  <text x="662" y="390" class="note" font-size="13">the user, allows the write</text>
+
+  <!-- 4. response -->
+  <text x="150" y="452" class="step" font-size="13">4</text>
+  <text x="380" y="466" text-anchor="middle" class="msg" font-size="13">201 Created</text>
+  <path class="arrow-back" d="M 620 480 L 145 480" marker-end="url(#head-gray)"/>
+
+  <!-- 5. logout -->
+  <text x="150" y="554" class="step" font-size="13">5</text>
+  <text x="380" y="568" text-anchor="middle" class="msg" font-size="13">POST /api/auth/logout</text>
+  <path class="arrow" d="M 140 582 L 615 582" marker-end="url(#head-blue)"/>
+  <rect class="note-box" x="650" y="548" width="215" height="60" rx="8"/>
+  <text x="662" y="570" class="note" font-size="13">deletes the session; the</text>
+  <text x="662" y="590" class="note" font-size="13">cookie now points to nothing</text>
+</svg>

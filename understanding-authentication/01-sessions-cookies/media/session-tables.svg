@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" width="900" height="610" role="img" aria-label="Simplified Spring Session database example. One SPRING_SESSION row stores a session's identifiers and lifecycle times. One SPRING_SESSION_ATTRIBUTES row points to that session and stores an attribute named SPRING_SECURITY_CONTEXT.">
+  <style>
+    .surface { fill: #fcfcfb; }
+    .border { fill: none; stroke: rgba(11, 11, 11, 0.10); stroke-width: 1; }
+    .card { fill: #ffffff; stroke: rgba(11, 11, 11, 0.14); stroke-width: 1; }
+    .head-blue { fill: #2a78d6; fill-opacity: 0.10; }
+    .head-orange { fill: #eb6834; fill-opacity: 0.10; }
+    .row-alt { fill: #898781; fill-opacity: 0.05; }
+    .rule { stroke: rgba(11, 11, 11, 0.10); stroke-width: 1; }
+    .relation { fill: none; stroke: #2a78d6; stroke-width: 2; }
+    .relation-dot { fill: #2a78d6; }
+    .title { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #0b0b0b; }
+    .subtitle { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; fill: #52514e; }
+    .field { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; fill: #52514e; }
+    .value { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 400; fill: #0b0b0b; }
+    .note { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 400; fill: #898781; }
+    .link-label { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; fill: #2a78d6; }
+  </style>
+
+  <rect class="surface" x="1" y="1" width="898" height="608" rx="16"/>
+  <rect class="border" x="1" y="1" width="898" height="608" rx="16"/>
+
+  <text x="40" y="42" class="title" font-size="17">One session, stored across two tables</text>
+  <text x="40" y="66" class="subtitle" font-size="13">Simplified values and one example row per table</text>
+
+  <rect class="card" x="40" y="94" width="390" height="444" rx="12"/>
+  <path class="head-blue" d="M52 94h366a12 12 0 0 1 12 12v62H40v-62a12 12 0 0 1 12-12z"/>
+  <text x="64" y="124" class="title" font-size="15">SPRING_SESSION</text>
+  <text x="64" y="148" class="subtitle" font-size="12">identity and lifecycle</text>
+
+  <rect class="row-alt" x="40" y="168" width="390" height="50"/>
+  <text x="64" y="198" class="field" font-size="12">PRIMARY_ID</text>
+  <text x="406" y="198" text-anchor="end" class="value" font-size="12">6f08…</text>
+  <line class="rule" x1="40" y1="218" x2="430" y2="218"/>
+
+  <text x="64" y="248" class="field" font-size="12">SESSION_ID</text>
+  <text x="406" y="248" text-anchor="end" class="value" font-size="12">4e6d…</text>
+  <line class="rule" x1="40" y1="268" x2="430" y2="268"/>
+
+  <rect class="row-alt" x="40" y="268" width="390" height="50"/>
+  <text x="64" y="298" class="field" font-size="12">CREATION_TIME</text>
+  <text x="406" y="298" text-anchor="end" class="value" font-size="12">10:00:00</text>
+  <line class="rule" x1="40" y1="318" x2="430" y2="318"/>
+
+  <text x="64" y="348" class="field" font-size="12">LAST_ACCESS_TIME</text>
+  <text x="406" y="348" text-anchor="end" class="value" font-size="12">10:12:40</text>
+  <line class="rule" x1="40" y1="368" x2="430" y2="368"/>
+
+  <rect class="row-alt" x="40" y="368" width="390" height="50"/>
+  <text x="64" y="398" class="field" font-size="12">MAX_INACTIVE_INTERVAL</text>
+  <text x="406" y="398" text-anchor="end" class="value" font-size="12">1800 seconds</text>
+  <line class="rule" x1="40" y1="418" x2="430" y2="418"/>
+
+  <text x="64" y="448" class="field" font-size="12">EXPIRY_TIME</text>
+  <text x="406" y="448" text-anchor="end" class="value" font-size="12">10:42:40</text>
+  <line class="rule" x1="40" y1="468" x2="430" y2="468"/>
+
+  <rect class="row-alt" x="40" y="468" width="390" height="50"/>
+  <text x="64" y="498" class="field" font-size="12">PRINCIPAL_NAME</text>
+  <text x="406" y="498" text-anchor="end" class="value" font-size="12">sam@example.com</text>
+
+  <rect class="card" x="470" y="94" width="390" height="294" rx="12"/>
+  <path class="head-orange" d="M482 94h366a12 12 0 0 1 12 12v62H470v-62a12 12 0 0 1 12-12z"/>
+  <text x="494" y="124" class="title" font-size="15">SPRING_SESSION_ATTRIBUTES</text>
+  <text x="494" y="148" class="subtitle" font-size="12">data attached to the session</text>
+
+  <rect class="row-alt" x="470" y="168" width="390" height="64"/>
+  <text x="494" y="192" class="field" font-size="12">SESSION_PRIMARY_ID</text>
+  <text x="836" y="192" text-anchor="end" class="value" font-size="12">6f08…</text>
+  <text x="494" y="216" class="note" font-size="11">references SPRING_SESSION.PRIMARY_ID</text>
+  <line class="rule" x1="470" y1="232" x2="860" y2="232"/>
+
+  <text x="494" y="262" class="field" font-size="12">ATTRIBUTE_NAME</text>
+  <text x="836" y="286" text-anchor="end" class="value" font-size="11">SPRING_SECURITY_CONTEXT</text>
+  <line class="rule" x1="470" y1="306" x2="860" y2="306"/>
+
+  <rect class="row-alt" x="470" y="306" width="390" height="62"/>
+  <text x="494" y="334" class="field" font-size="12">ATTRIBUTE_BYTES</text>
+  <text x="836" y="354" text-anchor="end" class="value" font-size="11">serialized value…</text>
+
+  <path class="relation" d="M430 193 C450 193 450 200 470 200"/>
+  <circle class="relation-dot" cx="430" cy="193" r="4"/>
+  <circle class="relation-dot" cx="470" cy="200" r="4"/>
+
+  <rect x="470" y="420" width="390" height="98" rx="10" fill="#2a78d6" fill-opacity="0.07"/>
+  <text x="494" y="450" class="link-label" font-size="13">How retrieval works</text>
+  <text x="494" y="476" class="subtitle" font-size="12">SESSION cookie → session row</text>
+  <text x="494" y="500" class="subtitle" font-size="12">primary ID → attribute rows</text>
+
+  <text x="40" y="574" class="note" font-size="12">Times are shown as readable examples. Spring Session stores them in database-friendly formats.</text>
+</svg>

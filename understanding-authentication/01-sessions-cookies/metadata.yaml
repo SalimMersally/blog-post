@@ -1,0 +1,20 @@
+title: "Sessions: How the Web Remembers You"
+slug: "sessions-cookies"
+date_published: "2026-09-17"  # YYYY-MM-DD, blank until published
+status: "published"            # draft | ready | published
+tags:
+  - "Authentication"
+  - "Security"
+  - "Spring Boot"
+  - "PostgreSQL"
+  - "Java"
+description: "How server-side sessions and cookies work, including cookie flags, CSRF protection, session fixation, and a runnable Spring Security and PostgreSQL demo."
+series: "understanding-authentication"
+series_part: 1
+read_time_minutes: 17
+inspired_by: "none"
+references:
+  - "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+  - "https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html"
+  - "https://docs.spring.io/spring-session/reference/"
+  - "https://docs.spring.io/spring-boot/reference/web/spring-session.html"

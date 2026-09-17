@@ -1,0 +1,26 @@
+assets:
+  - filename: "session-flow.svg"
+    source_url: "original"
+    license: "original"
+    attribution_text: "none"
+    placeholder: false
+  - filename: "session-tables.svg"
+    source_url: "original"
+    license: "original"
+    attribution_text: "none"
+    placeholder: false
+  - filename: "session-fixation.svg"
+    source_url: "original"
+    license: "original"
+    attribution_text: "none"
+    placeholder: false
+  - filename: "csrf-double-submit.svg"
+    source_url: "original"
+    license: "original"
+    attribution_text: "none"
+    placeholder: false
+  - filename: "demo-request-sequence.svg"
+    source_url: "original"
+    license: "original"
+    attribution_text: "none"
+    placeholder: false
